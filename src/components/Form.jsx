@@ -15,9 +15,9 @@ export default function Form({
   const ClickHandle = (e) => {
     e.preventDefault();
     if (todo === "") {
-      toast.error("Boş bir to-doooo! giremezsin!" , {duration : 1500})
+      toast.error("Boş bir to-dooo! giremezsin!" , {duration : 1500})
     } else {
-      toast.success("To-doooo! oluşturdun!")
+      toast.success("To-dooo! oluşturdun!")
       setTodos([
         ...todos,
         {
