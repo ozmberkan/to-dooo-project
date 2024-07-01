@@ -31,6 +31,7 @@ export default function Form({
   };
 
   const deleteFullTodo = () => {
+    toast.success("Bütün to-dooo'lar silindi!")
     setTodos([]);
     setComplete([]);
     setTest([]);

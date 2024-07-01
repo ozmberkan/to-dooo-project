@@ -5,6 +5,7 @@ import { VscServerProcess } from "react-icons/vsc";
 import { Tooltip } from "react-tooltip";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import useMedia from "../hooks/useMedia";
+import {toast, Toaster} from "react-hot-toast";
 
 export default function Info({
   todos,
@@ -22,17 +23,21 @@ export default function Info({
 
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+    toast.success(`Seçilen to-dooo silindi`)
   };
 
   const deleteCompleteTodo = (id) => {
     setComplete(complete.filter((todo) => todo.id !== id));
+    toast.success(`Seçilen to-dooo silindi`)
   };
 
   const deleteTestTodo = (id) => {
     setTest(test.filter((todo) => todo.id !== id));
+    toast.success(`Seçilen to-dooo silindi`)
   };
 
   const testToCompleteTodo = (id) => {
+    toast.success("Tamamlananlara aktarıldı.")
     const testTodo = test.find((todo) => todo.id === id);
     if (testTodo) {
       setComplete([...complete, testTodo]);
@@ -41,11 +46,13 @@ export default function Info({
   };
 
   const testTodo = (id) => {
+    toast.success("Test Aşamasına aktarıldı.")
     setTodos(todos.filter((todo) => todo.id !== id));
     setTest([...test, todos.find((todo) => todo.id === id)]);
   };
 
   const completeTodo = (id) => {
+    toast.success("Tamamlananlara aktarıldı.")
     setTodos(todos.filter((todo) => todo.id !== id));
     setComplete([...complete, todos.find((todo) => todo.id === id)]);
   };
