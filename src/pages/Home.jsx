@@ -4,12 +4,14 @@ import Info from "../components/Info";
 import useMedia from "../hooks/useMedia";
 
 export default function Home() {
+  const isMobile = useMedia(1024)
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const [complete, setComplete] = useState([]);
   const [test, setTest] = useState([]);
+  const [time, setTime] = useState(new Date());
 
-  const isMobile = useMedia(1024)
+
 
   useEffect(() => {
     setTodos(JSON.parse(localStorage.getItem("todos")));

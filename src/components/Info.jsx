@@ -14,6 +14,8 @@ export default function Info({
   test,
   setComplete,
   complete,
+  time,
+  setTime
 }) {
   const [todoParent] = useAutoAnimate();
   const [completeParent] = useAutoAnimate();
@@ -56,8 +58,11 @@ export default function Info({
     setTodos(todos.filter((todo) => todo.id !== id));
     setComplete([...complete, todos.find((todo) => todo.id === id)]);
   };
+  
+  
 
 
+  
 
   if (isMobile) {
     return (
@@ -207,7 +212,7 @@ export default function Info({
           {todos &&
     todos.map((todo) => (
       <div
-        className="flex  justify-between items-center border border-[#404040]/20 ring-2 ring-inset ring-black/5 rounded-md mb-2 py-6 px-5"
+        className="flex relative mt-2 justify-between items-center border border-[#404040]/20 ring-2 ring-inset ring-black/5 rounded-md mb-2 py-6 px-5"
         key={todo.id}
       >
         <p className=" w-[55%] font-poppins font-normal text-ellipsis break-words">
