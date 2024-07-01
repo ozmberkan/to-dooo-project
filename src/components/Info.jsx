@@ -56,7 +56,7 @@ export default function Info({
     return (
       <div className="flex flex-col gap-y-6">
       <div
-  className="border border-[#141414]/10 p-4 rounded-md flex flex-col gap-y-5 overflow-y-auto"
+  className="border border-[#141414]/10 p-4 rounded-md flex flex-col gap-y-5 "
   ref={todoParent}
   
 >
@@ -66,7 +66,7 @@ export default function Info({
   {todos &&
     todos.map((todo) => (
       <div
-        className="flex justify-between items-center border border-[#404040]/20 ring-2 ring-inset ring-black/5 rounded-md mb-2 py-6 px-5"
+        className="flex  justify-between items-center border border-[#404040]/20 ring-2 ring-inset ring-black/5 rounded-md mb-2 py-6 px-5"
         key={todo.id}
       >
         <p className=" w-[55%] font-poppins font-normal text-ellipsis break-words">
@@ -188,7 +188,7 @@ export default function Info({
   return (
     <div className="grid grid-cols-3 gap-10 mt-8">
       <div
-  className="border border-[#141414]/10 p-4 rounded-md flex flex-col gap-y-5 overflow-y-auto"
+  className="border border-[#141414]/10 p-4 max-h-[700px] rounded-md flex flex-col gap-y-5 overflow-auto"
   ref={todoParent}
   
 >
@@ -196,10 +196,11 @@ export default function Info({
     Yapılacaklar
   </h1>
   <hr />
-  {todos &&
+        <div className="w-full flex flex-col gap-y-3 overflow-auto px-5">
+          {todos &&
     todos.map((todo) => (
       <div
-        className="flex justify-between items-center border border-[#404040]/20 ring-2 ring-inset ring-black/5 rounded-md mb-2 py-6 px-5"
+        className="flex  justify-between items-center border border-[#404040]/20 ring-2 ring-inset ring-black/5 rounded-md mb-2 py-6 px-5"
         key={todo.id}
       >
         <p className=" w-[55%] font-poppins font-normal text-ellipsis break-words">
@@ -236,18 +237,20 @@ export default function Info({
         </div>
       </div>
     ))}
+  </div>
 </div>
 
 
 
       <div
-        className="border border-[#141414]/10 p-4 rounded-md flex flex-col gap-y-5 overflow-y-auto"
+        className="border border-[#141414]/10 p-4 rounded-md max-h-[700px] flex flex-col gap-y-5 overflow-y-auto"
         ref={completeParent}
       >
-         <h1 className="text-[18px] font-bold font-poppins text-[#141414] w-full py-2 px-2 rounded-md">
+         <h1 className="text-[18px] font-bold font-poppins  text-[#141414] w-full py-2 px-2 rounded-md">
     Tamamlananlar
         </h1>
-          <hr />
+        <hr />
+        <div className="w-full flex flex-col gap-y-3 overflow-auto px-5">
         {complete &&
           complete.map((complete) => (
             <div
@@ -266,16 +269,19 @@ export default function Info({
               </button>
             </div>
           ))}
+
+        </div>
       </div>
       <div
-        className="border border-[#141414]/10 p-4 rounded-md flex flex-col gap-y-5 overflow-y-auto"
+        className="border border-[#141414]/10 max-h-[700px] p-4 rounded-md flex flex-col gap-y-5 overflow-y-auto"
         ref={testParent}
       >
         <h1 className="text-[18px] font-bold font-poppins text-[#141414] w-full py-2 px-2 rounded-md">
           Test Aşamasında
         </h1>
         <hr />
-        {test &&
+        <div className="w-full flex flex-col gap-y-3 overflow-auto px-5">
+          {test &&
           test.map((testItem) => (
             <div
               className="flex justify-between items-center border border-[#404040]/20 ring-2 ring-inset ring-black/5 rounded-md mb-2 py-6 px-5"
@@ -306,6 +312,7 @@ export default function Info({
               </div>
             </div>
           ))}
+        </div>
       </div>
     </div>
   );
