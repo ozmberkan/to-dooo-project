@@ -3,6 +3,7 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { MdOutlinePlaylistRemove } from "react-icons/md";
 import { nanoid } from "nanoid";
 import toast, { Toaster } from "react-hot-toast";
+import useMedia from "../hooks/useMedia";
 
 export default function Form({
   setTodo,
@@ -34,6 +35,39 @@ export default function Form({
     setComplete([]);
     setTest([]);
   };
+
+  const isMobile = useMedia(1024)
+
+  if (isMobile) {
+    return (
+      <form  className="flex justify-between items-center mb-5 gap-x-4">
+      <input
+        type="text"
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+        className="border px-1 py-1 h-12 flex-1"
+        placeholder="Yapılacaklar Ekle..."
+      />
+      <Toaster position="top-right" reverseOrder={false} />
+        <div className="flex gap-x-2">
+                <button
+        onClick={ClickHandle}
+        className="bg-[#34b934] p-2 rounded-full text-white"
+      >
+        <BiMessageSquareAdd size={25} />
+      </button>
+      <button
+        type="button"
+        onClick={deleteFullTodo}
+        className="bg-red-500 text-white p-2 rounded-full"
+      >
+        <MdOutlinePlaylistRemove size={25} />
+      </button>
+    </div>
+    </form>
+    )
+  }
+
 
   return (
     <form  className="flex gap-x-5">
